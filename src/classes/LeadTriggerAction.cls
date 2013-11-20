@@ -7,8 +7,8 @@
  * ----------------------------------------
  */
 public with sharing class LeadTriggerAction {
-	
-	/**
+    
+    /**
      * コンストラクタ
      */
     public LeadTriggerAction() {
@@ -21,7 +21,7 @@ public with sharing class LeadTriggerAction {
      * @return  : キャンペーンメンバー
      */
     public CampaignMember getCampaignMember(Lead l) {
-    	return new CampaignMember(
+        return new CampaignMember(
              CampaignId = l.CampaignCd__c
             ,LeadId = l.Id
         );

@@ -7,7 +7,7 @@
  * ----------------------------------------
  */
 trigger CampaignMemberTrigger on CampaignMember (after insert) {
-	System.debug('CampaignMemberTrigger:START');
+    System.debug('CampaignMemberTrigger:START');
     
     // Handlerクラス
     CampaignMemberTriggerHandler handler = new CampaignMemberTriggerHandler();

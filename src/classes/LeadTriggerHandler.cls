@@ -7,8 +7,8 @@
  * ----------------------------------------
  */
 public with sharing class LeadTriggerHandler {
-	
-	private LeadTriggerAction action = new LeadTriggerAction();
+    
+    private LeadTriggerAction action = new LeadTriggerAction();
     
     /**
      * コンストラクタ
@@ -28,14 +28,14 @@ public with sharing class LeadTriggerHandler {
         List<CampaignMember> campaignMembers = new List<CampaignMember>();
         
         for (Lead l : prmLeadNews) {
-        	if (String.isNotEmpty(l.CampaignCd__c)) {
-	        	// キャンペーンメンバーの情報取得
-		        campaignMembers.add(this.action.getCampaignMember(l));
-        	}
+            if (String.isNotEmpty(l.CampaignCd__c)) {
+                // キャンペーンメンバーの情報取得
+                campaignMembers.add(this.action.getCampaignMember(l));
+            }
         }
         
         if (!campaignMembers.isEmpty()) {
-        	insert campaignMembers;
+            insert campaignMembers;
         }
         
         System.debug('doInsertMultipleLeads:END');

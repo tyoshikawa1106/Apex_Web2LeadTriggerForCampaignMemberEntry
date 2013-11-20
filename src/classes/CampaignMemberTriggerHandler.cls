@@ -7,12 +7,12 @@
  * ----------------------------------------
  */
 public with sharing class CampaignMemberTriggerHandler {
-	
-	private CampaignMemberTriggerDao dao = new CampaignMemberTriggerDao();
-	private CampaignMemberTriggerAction action = new CampaignMemberTriggerAction();
-	private static Boolean IS_LOOP;
-	
-	/**
+    
+    private CampaignMemberTriggerDao dao = new CampaignMemberTriggerDao();
+    private CampaignMemberTriggerAction action = new CampaignMemberTriggerAction();
+    private static Boolean IS_LOOP;
+    
+    /**
      * コンストラクタ
      */
     public CampaignMemberTriggerHandler() {
@@ -33,22 +33,22 @@ public with sharing class CampaignMemberTriggerHandler {
         
         List<Lead> leads = new List<Lead>();
         for (CampaignMember c : campaignMembers) {
-        	
-        	// 追加登録リード1
-        	if (String.isNotEmpty(c.Lead.Add_LastName1__c)) {
-        		
-	        	leads.add(this.action.getAddLead1(c));
-        	}
-        	
-        	// 追加登録リード2
-        	if (String.isNotEmpty(c.Lead.Add_LastName2__c)) {
-	        	
-	        	leads.add(this.action.getAddLead2(c));
-        	}
+            
+            // 追加登録リード1
+            if (String.isNotEmpty(c.Lead.Add_LastName1__c)) {
+                
+                leads.add(this.action.getAddLead1(c));
+            }
+            
+            // 追加登録リード2
+            if (String.isNotEmpty(c.Lead.Add_LastName2__c)) {
+                
+                leads.add(this.action.getAddLead2(c));
+            }
         }
         
         if (!leads.isEmpty()) {
-        	insert leads;
+            insert leads;
         }
         
         IS_LOOP = true;
